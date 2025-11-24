@@ -5,10 +5,8 @@ import { shortenText } from "../helper/helper";
 
 import styles from "./Card.module.css";
 
-function Card({ products }) {
-  const { id, image, title, price } = products;
-
-  if (!products) return <p>Loading</p>;
+function Card({ product }) {
+  const { image, title, price, id } = product;
   return (
     <div className={styles.card}>
       <img src={image} alt={title} />
