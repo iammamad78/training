@@ -1,7 +1,9 @@
 import Card from "../components/Card";
 import { useProducts } from "../context/ProductsContext";
 
+import Loader from "../components/Loader";
 import styles from "./ProductsPage.module.css";
+
 function ProductsPage() {
   const products = useProducts();
   console.log(products);
@@ -10,6 +12,7 @@ function ProductsPage() {
     <div className={styles.container}>
       <div>
         <ul className={styles.products}>
+          {!products.length && <Loader />}
           {products.map((products) => (
             <Card key={products.id} products={products} />
           ))}
