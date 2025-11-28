@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { FaListUl } from "react-icons/fa";
-import { ImSearch } from "react-icons/im";
 import { useProducts } from "../context/ProductsContext";
 import {
   createQueryObject,
@@ -14,6 +12,8 @@ import Card from "../components/Card";
 import Loader from "../components/Loader";
 import styles from "./ProductsPage.module.css";
 import { useSearchParams } from "react-router-dom";
+import SearchBox from "../components/SearchBox";
+import Sidebar from "../components/Sidebar";
 
 function ProductsPage() {
   const products = useProducts();
@@ -52,16 +52,11 @@ function ProductsPage() {
   return (
     <>
       {/* search section */}
-      <div>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
-        />
-        <button onClick={searchHandler}>
-          <ImSearch />
-        </button>
-      </div>
+      <SearchBox
+        search={search}
+        setSearch={setSearch}
+        searchHandler={searchHandler}
+      />
 
       <div className={styles.container}>
         {/* Main Section */}
@@ -73,19 +68,7 @@ function ProductsPage() {
         </div>
 
         {/* categories section */}
-        <div>
-          <div>
-            <FaListUl />
-            <p>Categories</p>
-          </div>
-          <ul onClick={categoriesHandler}>
-            <li>All</li>
-            <li>Electronics</li>
-            <li>Jewelery</li>
-            <li>Men's Clothing</li>
-            <li>Women's Clothing</li>
-          </ul>
-        </div>
+        <Sidebar query={query} categoriesHandler={categoriesHandler} />
       </div>
     </>
   );
