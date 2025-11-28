@@ -6,6 +6,7 @@ import { useProducts } from "../context/ProductsContext";
 import {
   createQueryObject,
   filterProducts,
+  getInitialQuery,
   searchProducts,
 } from "../helper/helper";
 import Card from "../components/Card";
@@ -36,15 +37,16 @@ function ProductsPage() {
   // showing all products initially
   useEffect(() => {
     setDisplayed(products);
+    setQuery(getInitialQuery(searchParams));
   }, [products]);
 
   // filtering and searching
   useEffect(() => {
     setSearchParams(query);
+    setSearch(query.search || "");
     let finalSearch = searchProducts(products, query.search);
     finalSearch = filterProducts(finalSearch, query.category);
     setDisplayed(finalSearch);
-    console.log(finalSearch);
   }, [query]);
 
   return (
