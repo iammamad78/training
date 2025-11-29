@@ -10,9 +10,10 @@ function Card({ product }) {
   const { image, title, price, id } = product;
 
   const [state, dispatch] = useCart();
+  console.log(state);
 
   const clickHandler = () => {
-    dispatch({ type: "Add", payload: product });
+    dispatch({ type: "ADD_ITEM", payload: product });
   };
 
   return (
