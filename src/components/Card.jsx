@@ -13,7 +13,7 @@ function Card({ product }) {
   console.log(state);
 
   const clickHandler = () => {
-    dispatch({ type: "ADD_ITEM", payload: product });
+    dispatch({ type: "INCREASE", payload: product });
   };
 
   return (
