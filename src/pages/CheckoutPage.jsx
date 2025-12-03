@@ -8,6 +8,9 @@ function CheckoutPage() {
     dispatch({ type, payload });
   };
 
+  if (state.itemsCounter === 0) {
+    return <h2 style={{ textAlign: "center" }}>Your basket is empty</h2>;
+  }
   return (
     <div>
       <div>

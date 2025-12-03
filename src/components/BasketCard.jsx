@@ -4,20 +4,21 @@ import { shortenText } from "../helper/helper";
 import styles from "./BasketCard.module.css";
 
 function BasketCard({ product, clickHandler }) {
+  const { image, title, quantity } = product;
   return (
     <div className={styles.card}>
-      <img src={product.image} alt={product.title} />
-      <p>{shortenText(product.title)}</p>
+      <img src={image} alt={title} />
+      <p>{shortenText(title)}</p>
       <div className={styles.actions}>
-        {product.quantity === 1 && (
+        {quantity === 1 && (
           <button onClick={() => clickHandler("REMOVE_ITEM", product)}>
             <MdDeleteOutline />
           </button>
         )}
-        {product.quantity > 1 && (
+        {quantity > 1 && (
           <button onClick={() => clickHandler("DECREASE", product)}>-</button>
         )}
-        <span>{product.quantity}</span>
+        <span>{quantity}</span>
         <button onClick={() => clickHandler("INCREASE", product)}>+</button>
       </div>
     </div>
