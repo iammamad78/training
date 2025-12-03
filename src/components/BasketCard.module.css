@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px dashed var(--color-secondary);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card img {
+  width: 50px;
+  height: 50px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.actions span {
+  width: 20px;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.actions button {
+  background-color: var(--color-primary);
+  color: var(--color-backGround);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  padding: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
